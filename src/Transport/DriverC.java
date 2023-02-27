@@ -19,5 +19,10 @@ public class DriverC extends Driver implements Moving {
         System.out.println("Driver" + getFullName() + "refuel the car");
     }
 
-
+    @Override
+    public String toString() {
+        return "DriverC{" +
+                "Имя:'" + fullName + '\'' +
+                '}';
+    }
 }

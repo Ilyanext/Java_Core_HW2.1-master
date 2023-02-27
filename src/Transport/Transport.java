@@ -1,25 +1,31 @@
 package Transport;
 
-public abstract class Transport<T extends Driver> {
-    private static String brand;
-    private static String model;
-    private static double engineVolume;
-    private Type Type;
-    private T driver;
-    private Type type;
+import java.util.List;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+public abstract class Transport<T extends Driver> {
+    protected static String brand;
+    protected static String model;
+    protected static double engineVolume;
+    protected Type Type;
+    protected T driver;
+    protected Type type;
+    protected List<Mechanic> mechanics;
+
+    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanic> mechanics) {
         this.brand = chekParmetrs(brand);
         this.model = chekParmetrs(model);
         this.engineVolume = chekParmetrs(engineVolume);
         setDriver(driver);
         this.Type = type;
+        this.mechanics = mechanics;
 
     }
+
     public abstract Type getType();
+
     public abstract void printType();
 
-    public boolean chekPassDiagnostics() {
+    public boolean checkPassDiagnostics() {
         try {
             passDiagnostics();
         } catch (TransportTypeException e) {
@@ -28,7 +34,19 @@ public abstract class Transport<T extends Driver> {
         return true;
     }
 
+    public void addMechanic(String fullName, String company) {
+        addMechanic(new Mechanic(fullName, company));
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
+    }
+
     abstract boolean passDiagnostics() throws TransportTypeException;
+
+    public void nameDriver() {
+        System.out.println(driver);
+    }
 
     public void startMoving() {
         System.out.println("Start moving");

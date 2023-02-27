@@ -1,10 +1,12 @@
 package Transport;
 
+import java.util.List;
+
 public class Trucks extends Transport<DriverD> implements Competing {
 
 private LoadCapacity loadCapacity;
-    public Trucks(String brand, String model, double engineVolume, DriverD driver, LoadCapacity loadCapacity) {
-        super(brand, model, engineVolume, driver);
+    public Trucks(String brand, String model, double engineVolume, DriverD driver, LoadCapacity loadCapacity, List<Mechanic> mechanica) {
+        super(brand, model, engineVolume, driver,mechanica);
         this.loadCapacity=loadCapacity;
     }
 
@@ -89,4 +91,11 @@ private LoadCapacity loadCapacity;
 
     }
 
+    @Override
+    public String toString() {
+        return "Грузовой авто{" +
+                "driver=" + driver +
+                ", mechanica=" + mechanics +
+                '}';
+    }
 }

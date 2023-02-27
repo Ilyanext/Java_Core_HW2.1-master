@@ -1,12 +1,22 @@
 package Transport;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverC> implements Competing {
 
     private Places places;
 
-    public Bus(String brand, String model, double engineVolume, DriverC driver, Places places) {
-        super(brand, model, engineVolume, driver);
+    public Bus(String brand, String model, double engineVolume, DriverC driver, Places places, List<Mechanic> mechanica) {
+        super(brand, model, engineVolume, driver, mechanica);
         this.places = places;
+    }
+
+    @Override
+    public String toString() {
+        return "Автобус{" +
+                "driver=" + driver +
+                ", mechanica=" + mechanics +
+                '}';
     }
 
     public Places getPlaces() {
