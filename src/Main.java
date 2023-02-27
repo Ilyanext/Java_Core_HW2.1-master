@@ -4,8 +4,7 @@ import Transport.Bus.*;
 import Transport.Trucks.*;
 import Transport.PassengerCars.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws TransportTypeException {
@@ -76,10 +75,15 @@ public class Main {
         serviceStation.addCarToTheQueue(carMex);
         serviceStation.addCarToTheQueue(truckMex);
         serviceStation.addCarToTheQueue(busMex);
+
         System.out.println();
         serviceStation.technicalInspection();
         serviceStation.technicalInspection();
+        System.out.println();
 
+        Map<Transport, List<Mechanic>> list = new HashMap<Transport, List<Mechanic>>();
+        list.put(carAudi, mersMechanics );
+        System.out.println(list.get(carAudi));
 
     }
 }
