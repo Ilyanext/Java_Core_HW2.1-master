@@ -69,5 +69,17 @@ public class Main {
         truckMex.nameDriver();
 
 
+        System.out.println();
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addCarToTheQueue(carAudi);
+        serviceStation.addCarToTheQueue(carMers);
+        serviceStation.addCarToTheQueue(carMex);
+        serviceStation.addCarToTheQueue(truckMex);
+        serviceStation.addCarToTheQueue(busMex);
+        System.out.println();
+        serviceStation.technicalInspection();
+        serviceStation.technicalInspection();
+
+
     }
 }

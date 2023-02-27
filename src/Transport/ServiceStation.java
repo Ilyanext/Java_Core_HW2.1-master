@@ -1,23 +1,31 @@
 package Transport;
 
+import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class ServiceStation {
-    private final LinkedList<Transport> Queue;
+    private final Queue<Transport> queue;
 
     public ServiceStation() {
-        this.Queue = new LinkedList<>();
+        this.queue = new LinkedList<>();
     }
 
     public void addCarToTheQueue(Transport transport) {
-        Queue<Transport> queue = new LinkedList<>();
-        queue.offer(transport);
-        System.out.println(queue.peek());
-        String town;
-        while ((town = queue.poll().toString()) != null) {
-            // Выводим элементы на экран
-            System.out.println(town);
+        try {
+            transport.passDiagnostics();
+            queue.offer(transport);
+            System.out.println(transport + " поставлен в очередь.");
+        } catch (TransportTypeException transportTypeException) {
+            System.out.println(transport + "не может быть поставлена в очередь!");
         }
     }
+
+    public void technicalInspection() {
+        Transport transport = queue.poll();
+        System.out.println(transport + "прошла техосмотр.");
+        System.out.println(queue.size()+ " - число машин в очереди.");
+    }
+
 }
+
