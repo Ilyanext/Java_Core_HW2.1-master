@@ -14,8 +14,8 @@ public class Bus extends Transport<DriverC> implements Competing {
     @Override
     public String toString() {
         return "Автобус: " + getBrand() +
-                ", " + driver +
-                ", " + mechanics;
+                ", " + driver;
+
     }
 
     public Places getPlaces() {

@@ -94,7 +94,6 @@ public class Trucks extends Transport<DriverD> implements Competing {
     @Override
     public String toString() {
         return "Грузовой авто: " + getBrand()+
-                ", " + driver +
-                ", " + mechanics;
+                ", " + driver;
     }
 }

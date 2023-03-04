@@ -91,8 +91,7 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
     @Override
     public String toString() {
         return "Автомобиль: " + getBrand() +
-                ", " + driver +
-                ", " + mechanics;
+                ", " + driver;
     }
 }
 

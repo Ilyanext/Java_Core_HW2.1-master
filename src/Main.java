@@ -61,39 +61,70 @@ public class Main {
         truckMex.addMechanic(new Mechanic("Red", "AndF"));
         truckMex.addMechanic(new Mechanic("Redug", "AndFe"));
 
-        List<Transport> auto = new ArrayList<>();
+//        List<Transport> auto = new ArrayList<>();
+//
+//        auto.add(carAudi);
+//        auto.add(busAudi);
+//        auto.add(truckAudi);
+//        auto.add(carMers);
+//        auto.add(carRonol);
+//        System.out.println(auto);
+//        System.out.println();
+//
+//        System.out.println(carRonol);
+//        System.out.println(carMers);
+//        System.out.println();
+//
+//        carMex.nameDriver();
+//        truckMex.nameDriver();
+//        System.out.println();
+//
+//        ServiceStation serviceStation = new ServiceStation();
+//        serviceStation.addCarToTheQueue(carAudi);
+//        serviceStation.addCarToTheQueue(carMers);
+//        serviceStation.addCarToTheQueue(carMex);
+//        serviceStation.addCarToTheQueue(truckMex);
+//        serviceStation.addCarToTheQueue(busMex);
+//        serviceStation.addCarToTheQueue(busMers);
+//
+//        System.out.println();
+//        serviceStation.technicalInspection();
+//        serviceStation.technicalInspection();
+//        serviceStation.technicalInspection();
+//        serviceStation.technicalInspection();
+//        System.out.println();
 
-        auto.add(carAudi);
-        auto.add(busAudi);
-        auto.add(truckAudi);
-        auto.add(carMers);
-        auto.add(carRonol);
-        System.out.println(auto);
-        System.out.println();
+        Mechanic mechanic = new Mechanic("Frodo", "Iada");
+        Mechanic mechanic2 = new Mechanic("Frido", "DIada");
 
-        System.out.println(carRonol);
-        System.out.println(carMers);
-        System.out.println();
+        Mechanic mechanic3 = new Mechanic("Rik", "Rik&Morti");
+        Mechanic mechanic4 = new Mechanic("Ris", "Simona");
 
-        carMex.nameDriver();
-        truckMex.nameDriver();
-        System.out.println();
+        Mechanic mechanic5 = new Mechanic("Frido", "DIada");
+        Mechanic mechanic6 = new Mechanic("Sims","Rider");
 
-        ServiceStation serviceStation = new ServiceStation();
-        serviceStation.addCarToTheQueue(carAudi);
-        serviceStation.addCarToTheQueue(carMers);
-        serviceStation.addCarToTheQueue(carMex);
-        serviceStation.addCarToTheQueue(truckMex);
-        serviceStation.addCarToTheQueue(busMex);
-        serviceStation.addCarToTheQueue(busMers);
+        List<Mechanic> mechanicsCar = new ArrayList<>();
+        mechanicsCar.add(mechanic);
+        mechanicsCar.add(mechanic2);
 
-        System.out.println();
-        serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
-        System.out.println();
+        List<Mechanic> mechanicsBus = new ArrayList<>();
+        mechanicsBus.add(mechanic3);
+        mechanicsBus.add(mechanic4);
 
+        List<Mechanic> mechanicsTruk = new ArrayList<>();
+        mechanicsTruk.add(mechanic5);
+        mechanicsTruk.add(mechanic6);
 
+        Map<Transport, List<Mechanic>> list = new HashMap<Transport, List<Mechanic>>();
+        list.put(carAudi, mechanicsTruk);
+        list.put(carMers, mechanicsTruk);
+        list.put(carMex, mechanicsTruk);
+        list.put(busAudi,mechanicsCar);
+        list.put(truckRonol, mechanicsTruk);
+        list.put(truckMers, mechanicsCar);
+
+        for (Map.Entry<Transport, List<Mechanic>> transport: list.entrySet()){
+            System.out.println(transport.getKey() + " :"+ transport.getValue());
+        }
     }
 }
