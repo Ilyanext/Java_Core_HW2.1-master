@@ -13,10 +13,9 @@ public class Bus extends Transport<DriverC> implements Competing {
 
     @Override
     public String toString() {
-        return "Автобус{" +
-                "driver=" + driver +
-                ", mechanica=" + mechanics +
-                '}';
+        return "Автобус: " + getBrand() +
+                ", " + driver +
+                ", " + mechanics;
     }
 
     public Places getPlaces() {
@@ -38,6 +37,7 @@ public class Bus extends Transport<DriverC> implements Competing {
 
     @Override
     public boolean passDiagnostics() throws TransportTypeException {
+        System.out.println("Автобусы не могут проходить диагностику");
         throw new TransportTypeException("Автобусы не должны проходить диагностику!");
     }
 

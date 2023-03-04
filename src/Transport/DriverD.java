@@ -21,8 +21,6 @@ public class DriverD extends Driver implements Moving {
 
     @Override
     public String toString() {
-        return "DriverD{" +
-                "Имя:" + fullName + '\'' +
-                '}';
+        return "Водитель D категории: " + fullName;
     }
 }

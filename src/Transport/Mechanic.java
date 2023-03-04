@@ -18,17 +18,16 @@ public class Mechanic {
     }
 
     public void performMaintenance(Transport transport){
-        System.out.println("провести техобслуживание");
+        System.out.println("Провести техобслуживание автомобиля "+ transport.getBrand());
     }
     public void fixTheCar(Transport transport){
-        System.out.println("починить машину");
+        System.out.println("Починить машину "+transport.getBrand());
     }
 
     @Override
     public String toString() {
-        return "Mechanic{" +
-                "fullName='" + fullName + '\'' +
-                ", company='" + company + '\'' +
-                '}';
+        return "Механик (" +
+                "имя: " + fullName +
+                ", компания: " + company+ ")";
     }
 }

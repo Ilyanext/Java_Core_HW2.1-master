@@ -17,15 +17,18 @@ public class ServiceStation {
             queue.offer(transport);
             System.out.println(transport + " поставлен в очередь.");
         } catch (TransportTypeException transportTypeException) {
-            System.out.println(transport + "не может быть поставлена в очередь!");
+            System.out.println(transport + " не может быть поставлен в очередь!");
         }
     }
 
     public void technicalInspection() {
         Transport transport = queue.poll();
-        System.out.println(transport + "прошла техосмотр.");
-        System.out.println(queue.size()+ " - число машин в очереди.");
+        if (queue.size() == 0) {
+            System.out.println("Очередь пуста!");
+        } else {
+            System.out.println(transport + " прошла техосмотр.");
+            System.out.println(queue.size() + " - число машин в очереди.");
+        }
     }
-
 }
 

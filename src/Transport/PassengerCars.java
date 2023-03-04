@@ -30,10 +30,9 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
     }
 
 
-
     @Override
     public boolean passDiagnostics() {
-        System.out.println("Машина может пройти диагностику");
+        System.out.println("Автомобиль может пройти диагностику");
         return false;
     }
 
@@ -91,10 +90,9 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
 
     @Override
     public String toString() {
-        return "Автомобиль{" +
-                "driver=" + driver +
-                ", mechanics=" + mechanics +
-                '}';
+        return "Автомобиль: " + getBrand() +
+                ", " + driver +
+                ", " + mechanics;
     }
 }
 

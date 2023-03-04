@@ -3,9 +3,9 @@ package Transport;
 import java.util.List;
 
 public abstract class Transport<T extends Driver> {
-    protected static String brand;
-    protected static String model;
-    protected static double engineVolume;
+    private String brand;
+    private String model;
+    protected double engineVolume;
     protected Type Type;
     protected T driver;
     protected Type type;
@@ -24,15 +24,6 @@ public abstract class Transport<T extends Driver> {
     public abstract Type getType();
 
     public abstract void printType();
-
-    public boolean checkPassDiagnostics() {
-        try {
-            passDiagnostics();
-        } catch (TransportTypeException e) {
-            return false;
-        }
-        return true;
-    }
 
     public void addMechanic(String fullName, String company) {
         addMechanic(new Mechanic(fullName, company));
@@ -78,7 +69,7 @@ public abstract class Transport<T extends Driver> {
         return driver;
     }
 
-    public static String getBrand() {
+    public String getBrand() {
         return brand;
     }
 
@@ -86,7 +77,7 @@ public abstract class Transport<T extends Driver> {
         this.brand = brand;
     }
 
-    public static String getModel() {
+    public String getModel() {
         return model;
     }
 
@@ -94,7 +85,7 @@ public abstract class Transport<T extends Driver> {
         this.model = model;
     }
 
-    public static double getEngineVolume() {
+    public double getEngineVolume() {
         return engineVolume;
     }
 
