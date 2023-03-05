@@ -21,7 +21,6 @@ public class ServiceStation {
 //        }
 //    }
 
-
     public void addCarToTheQueue (PassengerCars transport) {
         queue.offer(transport);
         System.out.println(transport + " поставлен в очередь.");
