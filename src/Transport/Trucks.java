@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Trucks extends Transport<DriverD> implements Competing {
 
@@ -96,5 +97,19 @@ public class Trucks extends Transport<DriverD> implements Competing {
         return "Грузовой авто: " + getBrand()+
                 ", " + driver +
                 ", " + mechanics;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Trucks trucks = (Trucks) o;
+        return loadCapacity == trucks.loadCapacity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loadCapacity);
     }
 }

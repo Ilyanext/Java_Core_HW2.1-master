@@ -81,17 +81,17 @@ public class Main {
 
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addCarToTheQueue(carAudi);
-        serviceStation.addCarToTheQueue(carMers);
-        serviceStation.addCarToTheQueue(carMex);
         serviceStation.addCarToTheQueue(truckMex);
         serviceStation.addCarToTheQueue(busMex);
+        serviceStation.addCarToTheQueue(carMex);
+
         serviceStation.addCarToTheQueue(busMers);
 
         System.out.println();
         serviceStation.technicalInspection();
         serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
+
+
         System.out.println();
 
 

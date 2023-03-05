@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport<DriverC> implements Competing {
 
@@ -100,5 +101,19 @@ public class Bus extends Transport<DriverC> implements Competing {
         System.out.println(("Марка автомобиля:  " + getBrand() + ", модель: " + getModel() +
                 ", объем двигателя: " + getEngineVolume()));
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return places == bus.places;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), places);
     }
 }

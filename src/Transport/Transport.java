@@ -1,6 +1,7 @@
 package Transport;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> {
     private String brand;
@@ -93,4 +94,16 @@ public abstract class Transport<T extends Driver> {
         this.engineVolume = engineVolume;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && Type == transport.Type && driver.equals(transport.driver) && type == transport.type && mechanics.equals(transport.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, Type, driver, type, mechanics);
+    }
 }
