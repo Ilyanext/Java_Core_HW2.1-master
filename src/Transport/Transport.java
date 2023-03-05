@@ -1,34 +1,44 @@
 package Transport;
 
-public abstract class Transport<T extends Driver> {
-    private static String brand;
-    private static String model;
-    private static double engineVolume;
-    private Type Type;
-    private T driver;
-    private Type type;
+import java.util.List;
+import java.util.Objects;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+public abstract class Transport<T extends Driver> {
+    private String brand;
+    private String model;
+    protected double engineVolume;
+    protected Type Type;
+    protected T driver;
+    protected Type type;
+    protected List<Mechanic> mechanics;
+
+    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanic> mechanics) {
         this.brand = chekParmetrs(brand);
         this.model = chekParmetrs(model);
         this.engineVolume = chekParmetrs(engineVolume);
         setDriver(driver);
         this.Type = type;
+        this.mechanics = mechanics;
 
     }
+
     public abstract Type getType();
+
     public abstract void printType();
 
-    public boolean chekPassDiagnostics() {
-        try {
-            passDiagnostics();
-        } catch (TransportTypeException e) {
-            return false;
-        }
-        return true;
+    public void addMechanic(String fullName, String company) {
+        addMechanic(new Mechanic(fullName, company));
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
     }
 
     abstract boolean passDiagnostics() throws TransportTypeException;
+
+    public void nameDriver() {
+        System.out.println(driver);
+    }
 
     public void startMoving() {
         System.out.println("Start moving");
@@ -60,7 +70,7 @@ public abstract class Transport<T extends Driver> {
         return driver;
     }
 
-    public static String getBrand() {
+    public String getBrand() {
         return brand;
     }
 
@@ -68,7 +78,7 @@ public abstract class Transport<T extends Driver> {
         this.brand = brand;
     }
 
-    public static String getModel() {
+    public String getModel() {
         return model;
     }
 
@@ -76,7 +86,7 @@ public abstract class Transport<T extends Driver> {
         this.model = model;
     }
 
-    public static double getEngineVolume() {
+    public double getEngineVolume() {
         return engineVolume;
     }
 
@@ -84,4 +94,16 @@ public abstract class Transport<T extends Driver> {
         this.engineVolume = engineVolume;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && Type == transport.Type && driver.equals(transport.driver) && type == transport.type && mechanics.equals(transport.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, Type, driver, type, mechanics);
+    }
 }
