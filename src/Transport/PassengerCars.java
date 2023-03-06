@@ -1,12 +1,14 @@
 package Transport;
 
+import java.util.List;
+
 public class PassengerCars extends Transport<DriverB> implements Competing {
 
 
     private BodyType bodyType;
 
-    public PassengerCars(String brand, String model, double engineVolume, DriverB driver, BodyType bodytype) {
-        super(brand, model, engineVolume, driver);
+    public PassengerCars(String brand, String model, double engineVolume, DriverB driver, BodyType bodytype, List<Mechanic> mechanica) {
+        super(brand, model, engineVolume, driver, mechanica);
         this.bodyType = bodytype;
     }
 
@@ -27,9 +29,10 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
             System.out.println(getBodyType());
     }
 
+
     @Override
     public boolean passDiagnostics() {
-        System.out.println("Машина может пройти диагностику");
+        System.out.println("Автомобиль может пройти диагностику");
         return false;
     }
 
@@ -85,5 +88,10 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
                 ", объем двигателя: " + getEngineVolume()));
     }
 
+    @Override
+    public String toString() {
+        return "Автомобиль: " + getBrand() +
+                ", " + driver;
+    }
 }
 

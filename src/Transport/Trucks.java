@@ -1,11 +1,14 @@
 package Transport;
 
+import java.util.List;
+
 public class Trucks extends Transport<DriverD> implements Competing {
 
-private LoadCapacity loadCapacity;
-    public Trucks(String brand, String model, double engineVolume, DriverD driver, LoadCapacity loadCapacity) {
-        super(brand, model, engineVolume, driver);
-        this.loadCapacity=loadCapacity;
+    private LoadCapacity loadCapacity;
+
+    public Trucks(String brand, String model, double engineVolume, DriverD driver, LoadCapacity loadCapacity, List<Mechanic> mechanica) {
+        super(brand, model, engineVolume, driver, mechanica);
+        this.loadCapacity = loadCapacity;
     }
 
     public LoadCapacity getLoadCapacity() {
@@ -19,15 +22,15 @@ private LoadCapacity loadCapacity;
 
     @Override
     public void printType() {
-    if(getLoadCapacity()==null){
-        System.out.println("Недостаточно данных по машине");
-    } else
-        System.out.println(getLoadCapacity());
+        if (getLoadCapacity() == null) {
+            System.out.println("Недостаточно данных по машине");
+        } else
+            System.out.println(getLoadCapacity());
     }
 
     @Override
     public boolean passDiagnostics() {
-        System.out.println("Машина может пройти диагностику");
+        System.out.println("Грузовая машина может пройти диагностику");
         return false;
     }
 
@@ -86,7 +89,11 @@ private LoadCapacity loadCapacity;
     public void print() {
         System.out.println(("Марка автомобиля:  " + getBrand() + ", модель: " + getModel() +
                 ", объем двигателя: " + getEngineVolume()));
-
     }
 
+    @Override
+    public String toString() {
+        return "Грузовой авто: " + getBrand()+
+                ", " + driver;
+    }
 }
