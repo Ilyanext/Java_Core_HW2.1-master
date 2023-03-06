@@ -35,6 +35,11 @@ public class Trucks extends Transport<DriverD> implements Competing {
         return false;
     }
 
+    @Override
+    public boolean addCar() {
+        return true;
+    }
+
     public enum LoadCapacity {
         N1(0, 3.5F),
         N2(3.5F, 12),

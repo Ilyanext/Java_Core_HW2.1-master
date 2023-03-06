@@ -94,6 +94,7 @@ public abstract class Transport<T extends Driver> {
         this.engineVolume = engineVolume;
     }
 
+    public abstract boolean addCar();
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

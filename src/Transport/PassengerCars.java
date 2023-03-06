@@ -90,6 +90,11 @@ public class PassengerCars extends Transport<DriverB> implements Competing {
     }
 
     @Override
+    public boolean addCar() {
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "Автомобиль: " + getBrand() +
                 ", " + driver +

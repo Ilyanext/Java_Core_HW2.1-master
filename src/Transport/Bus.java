@@ -42,6 +42,11 @@ public class Bus extends Transport<DriverC> implements Competing {
         throw new TransportTypeException("Автобусы не должны проходить диагностику!");
     }
 
+    @Override
+    public boolean addCar() {
+        return false;
+    }
+
     public enum Places {
         VERYSMOL(null, 10),
         SMOL(null, 25),
