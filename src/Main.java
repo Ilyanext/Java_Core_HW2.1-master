@@ -1,10 +1,12 @@
 import Transport.*;
+import Transport.Bus.Places;
+import Transport.PassengerCars.BodyType;
+import Transport.Trucks.LoadCapacity;
 
-import Transport.Bus.*;
-import Transport.Trucks.*;
-import Transport.PassengerCars.*;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) throws TransportTypeException {
@@ -61,38 +63,48 @@ public class Main {
         truckMex.addMechanic(new Mechanic("Red", "AndF"));
         truckMex.addMechanic(new Mechanic("Redug", "AndFe"));
 
-        List<Transport> auto = new ArrayList<>();
+//        List<Transport> auto = new ArrayList<>();
+//
+//        auto.add(carAudi);
+//        auto.add(busAudi);
+//        auto.add(truckAudi);
+//        auto.add(carMers);
+//        auto.add(carRonol);
+//        System.out.println(auto);
+//        System.out.println();
+//
+//        System.out.println(carRonol);
+//        System.out.println(carMers);
+//        System.out.println();
+//
+//        carMex.nameDriver();
+//        truckMex.nameDriver();
+//        System.out.println();
+//
+//        ServiceStation serviceStation = new ServiceStation();
+//        serviceStation.addCarToQueue(carAudi);
+//        serviceStation.addCarToQueue(truckMex);
+//        serviceStation.addCarToQueue(busMex);
+//        serviceStation.addCarToQueue(carMex);
+//        serviceStation.addCarToQueue(busMers);
+//
+//        System.out.println();
+//        serviceStation.technicalInspection();
+//        serviceStation.technicalInspection();
+//
+//
+//        System.out.println();
 
-        auto.add(carAudi);
-        auto.add(busAudi);
-        auto.add(truckAudi);
-        auto.add(carMers);
-        auto.add(carRonol);
-        System.out.println(auto);
-        System.out.println();
+        Set<Driver> driver = new HashSet<>();
+        driver.add(new Driver("Volodya", true, 10));
+        driver.add(new Driver("Volodya", false, 4));
+        driver.add(new Driver("Volodya", true, 10));
+        driver.add(new Driver("Ivan", true, 11));
+        driver.add(new Driver("Ilya", true, 1));
 
-        System.out.println(carRonol);
-        System.out.println(carMers);
-        System.out.println();
-
-        carMex.nameDriver();
-        truckMex.nameDriver();
-        System.out.println();
-
-        ServiceStation serviceStation = new ServiceStation();
-        serviceStation.addCarToQueue(carAudi);
-        serviceStation.addCarToQueue(truckMex);
-        serviceStation.addCarToQueue(busMex);
-        serviceStation.addCarToQueue(carMex);
-        serviceStation.addCarToQueue(busMers);
-
-        System.out.println();
-        serviceStation.technicalInspection();
-        serviceStation.technicalInspection();
-
-
-        System.out.println();
-
-
+        Iterator<Driver> iterName = driver.iterator();
+        while (iterName.hasNext()) {
+            System.out.println(iterName.next());
+        }
     }
 }
